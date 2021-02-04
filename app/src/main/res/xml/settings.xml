@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="@string/city_default_value"
+        android:key="@string/city_name_key"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/city_default_value"
+        android:title="@string/city_name_title" />
+</PreferenceScreen>

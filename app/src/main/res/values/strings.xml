@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WeatherInfo</string>
+    <string name="temperature" translatable="false">%1.0f°</string>
+    <string name="error_no_internet">Could not connect to the internet</string>
+    <string name="error_general_error">Unexpected error occurred</string>
+    <string name="retry">Retry</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="city_default_value">Gaza Strip</string>
+    <string name="city_name_key">city_name</string>
+    <string name="city_name_title">City Name</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

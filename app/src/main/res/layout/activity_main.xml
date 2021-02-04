@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.example.weatherinfo.DateUtils" />
+        <import type="android.view.View"/>
+        <variable
+            name="weatherInfo"
+            type="com.example.weatherinfo.model.entity.WeatherInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:padding="8dp"
+        tools:context=".view.MainActivity">
+
+        <TextView
+            android:id="@+id/text_view_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_humidity"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_pressure"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="84%"
+            android:text="@{String.valueOf(weatherInfo.main.humidity)}" />
+
+        <TextView
+            android:id="@+id/text_view_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_pressure"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_wind"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_view_humidity"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1001"
+            android:text="@{String.valueOf(weatherInfo.main.pressure)}"/>
+
+        <TextView
+            android:id="@+id/text_view_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_wind_socket"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_view_pressure"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="26 K/H"
+            android:text="@{String.valueOf(weatherInfo.wind.speed)}"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="196dp" />
+
+        <TextView
+            android:text="@{weatherInfo.name}"
+            android:id="@+id/text_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            tools:text="London" />
+
+        <TextView
+            android:text="@{@string/temperature(weatherInfo.main.temp)}"
+            android:id="@+id/text_view_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:drawableStart="@drawable/ic_temperature"
+            android:drawableLeft="@drawable/ic_temperature"
+            android:drawablePadding="16dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_high_temperature"
+            app:layout_constraintStart_toStartOf="@+id/text_view_humidity"
+            app:layout_constraintTop_toBottomOf="@+id/text_city"
+            tools:text="60"
+            />
+
+        <TextView
+            android:text="@{@string/temperature(weatherInfo.main.tempMax)}"
+            android:id="@+id/text_view_high_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_arrow_upward_24"
+            android:drawableLeft="@drawable/ic_baseline_arrow_upward_24"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_view_temperature"
+            app:layout_constraintTop_toTopOf="@+id/text_view_temperature"
+            tools:text="60" />
+
+        <TextView
+            android:text="@{@string/temperature(weatherInfo.main.tempMin)}"
+            android:id="@+id/text_view_low_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_arrow_downward_24"
+            android:drawableLeft="@drawable/ic_baseline_arrow_downward_24"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_temperature"
+            app:layout_constraintEnd_toEndOf="@+id/text_view_high_temperature"
+            app:layout_constraintStart_toStartOf="@+id/text_view_high_temperature"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_high_temperature"
+            tools:text="50" />
+
+        <TextView
+            android:text="@{DateUtils.format(weatherInfo.dt)}"
+
+            android:id="@+id/text_view_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_temperature"
+            tools:text="22 April, 2019" />
+
+        <androidx.constraintlayout.widget.Group
+            android:visibility="@{weatherInfo != null ? View.VISIBLE : View.GONE}"
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="text_view_date,text_city,text_view_temperature,text_view_high_temperature,text_view_low_temperature,text_view_pressure,text_view_wind,text_view_humidity"
+            tools:visibility="invisible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
